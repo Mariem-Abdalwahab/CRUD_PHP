@@ -22,11 +22,14 @@ function getUsersById($id)
 
 }
 
+
 function createUser($data)
 {
     $users = getUsers();
 
-    $data["id"] = rand(10000, 20000);
+    static $id = 16;
+
+    $data["id"] = $id++;
     $data["extention"] = imgExtention($data["id"]);
 
     array_push($users, $data);
